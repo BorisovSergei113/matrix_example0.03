@@ -2,14 +2,6 @@
 
 using namespace std;
 
-template <typename Type>
-Type ** Create_Matrix(int stroki,int stolbi){
-    Type **New_Matrix = new Type *[stroki];
-    for (int i=0;i<stroki;i++){
-        New_Matrix[i]= new Type [stolbi];
-    }
-    return New_Matrix;
-}
 
 template <class Type>
 class matrix_t {
