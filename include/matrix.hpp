@@ -6,7 +6,7 @@ using namespace std;
 template <class Type>
 class matrix_t {
     
-    static Type ** Create_Matrix(int stroki,int stolbi){  //Либо можно ставить <Type> аезде где вызвается ф-ция и сама вызываемая ф-ция вне класса
+    static Type ** Create_Matrix(int stroki,int stolbi){  //Либо можно ставить <Type> везде где вызвается ф-ция и сама вызываемая ф-ция вне класса
         Type **New_Matrix = new Type *[stroki];
         for (int i=0;i<stroki;i++){
             New_Matrix[i]= new Type [stolbi];
