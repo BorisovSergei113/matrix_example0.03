@@ -17,15 +17,27 @@ matrix:
       env: CXX_EVAL="g++-7" CC_EVAL="gcc-7" BUILD_TYPE='Debug'
 
     - os: linux
+      compiler: clang
+      env: BUILD_TYPE='Release' CXX_EVAL="clang++-5.0" CC_EVAL="clang-5.0"
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
-          packages:
-            - clang-5.0
-      env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-          
+            - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main'
+              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+            - ubuntu-toolchain-r-test
+          packages: ['clang-5.0']
+
+    - os: linux
+      compiler: clang
+      env: BUILD_TYPE='Debug' CXX_EVAL="clang++-5.0" CC_EVAL="clang-5.0"
+      addons:
+        apt:
+          sources:
+            - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main'
+              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+            - ubuntu-toolchain-r-test
+          packages: ['clang-5.0']
+
     - os: osx
       osx_image: xcode8.3
       compiler: clang
@@ -61,4 +73,3 @@ before_script:
 script:
 - cmake --build _builds
 - cmake --build _builds --target test -- ARGS=--verbose
-
