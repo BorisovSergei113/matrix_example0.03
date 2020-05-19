@@ -17,6 +17,7 @@ matrix:
       env: CXX_EVAL="g++-7" CC_EVAL="gcc-7" BUILD_TYPE='Debug'
 
     - os: linux
+      dist: trusty
       compiler: clang
       env: BUILD_TYPE='Release' CXX_EVAL="clang++-5.0" CC_EVAL="clang-5.0"
       addons:
@@ -28,6 +29,7 @@ matrix:
           packages: ['clang-5.0']
 
     - os: linux
+      dist: trusty
       compiler: clang
       env: BUILD_TYPE='Debug' CXX_EVAL="clang++-5.0" CC_EVAL="clang-5.0"
       addons:
